@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Купить звёзды Telegram и Telegram Premium в ПМР (Приднестровье). Оплата переводом через Агропромбанк. Нужен только @username — без пароля и входа в аккаунт.">
+<meta name="keywords" content="звёзды телеграм ПМР, купить звёзды telegram Приднестровье, Telegram Premium ПМР, телеграм премиум Тирасполь, Агропромбанк">
+<meta property="og:title" content="PremStar.gram — звёзды и Telegram Premium в ПМР">
+<meta property="og:description" content="Звёзды Telegram и Premium себе или в подарок. Оплата через Агропромбанк ПМР.">
+<meta property="og:type" content="website">
+<style>[hidden]{display:none!important}body{margin:0}</style>
+<title>PremStar.gram — звёзды и Telegram Premium в ПМР</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: одна узкая колонка-витрина, карточка покупки сверху, шаг оплаты раскрывается под ней */
+:root{
+  --bg:#f3f2f8; --surface:#ffffff; --sunk:#ebe9f3; --fg:#17151f; --muted:#6b6780;
+  --line:#dcd9e8; --accent:#5b3df5; --accent-fg:#ffffff; --gold:#c98a00; --warn-bg:#fff4d6; --warn-fg:#6a4a00;
+  --ok:#16794a;
+  --f-display:"Unbounded",system-ui,sans-serif; --f-body:"Manrope",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f0e14; --surface:#1a1822; --sunk:#24212f; --fg:#f1eff8; --muted:#9a96ad; --line:#2f2c3b;
+  --accent:#8c74ff; --accent-fg:#0f0e14; --gold:#f2b84b; --warn-bg:#3a2e0d; --warn-fg:#f6dc95; --ok:#4fd393; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f0e14; --surface:#1a1822; --sunk:#24212f; --fg:#f1eff8; --muted:#9a96ad; --line:#2f2c3b;
+  --accent:#8c74ff; --accent-fg:#0f0e14; --gold:#f2b84b; --warn-bg:#3a2e0d; --warn-fg:#f6dc95; --ok:#4fd393; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 40px}
+.wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+header{display:flex;flex-direction:column;gap:6px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.brand svg{width:20px;height:20px;fill:var(--gold)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,8vw,40px);line-height:1.08;margin:10px 0 0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{color:var(--muted);margin:0}
+.demo{background:var(--warn-bg);color:var(--warn-fg);border-radius:10px;padding:10px 14px;font-size:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:18px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--sunk);border-radius:12px;padding:4px;gap:4px}
+.tabs button{font:600 15px var(--f-body);border:0;border-radius:9px;padding:10px;background:transparent;color:var(--muted);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+label.lbl{font-weight:600;font-size:14px;display:block;margin-bottom:6px}
+.hint{color:var(--muted);font-size:13px;margin-top:6px}
+.field{display:flex;align-items:center;background:var(--sunk);border:1.5px solid transparent;border-radius:12px;padding:0 14px}
+.field:focus-within{border-color:var(--accent)}
+.field span{color:var(--muted);font-weight:600}
+.field input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:500 17px var(--f-body);padding:13px 6px;outline:none}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px}
+.chips button{font:600 15px var(--f-body);border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:12px;padding:10px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.chips button small{font-weight:500;color:var(--muted);font-size:12px}
+.chips button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.pick{display:flex;flex-direction:column;gap:10px}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line);padding-top:14px}
+.total b{font-family:var(--f-display);font-size:24px;font-variant-numeric:tabular-nums}
+.btn{font:700 16px var(--f-body);border:0;border-radius:14px;padding:15px;background:var(--accent);color:var(--accent-fg);cursor:pointer;width:100%;text-align:center;text-decoration:none;display:block}
+.btn.ghost{background:var(--sunk);color:var(--fg)}
+.btn:focus-visible,.tabs button:focus-visible,.chips button:focus-visible,.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.err{color:#d23b3b;font-size:14px;margin:0}
+.legal{color:var(--muted);font-size:12px;margin:0;text-align:center}
+.pay h2{font-family:var(--f-display);font-size:20px;margin:0}
+.order{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+dl.req{margin:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.row{display:flex;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row div{flex:1;min-width:0}
+dt{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+dd{margin:2px 0 0;font-weight:600;word-break:break-word}
+dd.mono{font-family:var(--f-mono);font-size:15px}
+.copy{border:0;background:var(--sunk);color:var(--fg);border-radius:9px;padding:8px 10px;font:600 13px var(--f-body);cursor:pointer;flex:none}
+ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px}
+.why div b{display:block;font-size:15px}
+.why div span{color:var(--muted);font-size:14px}
+h3{font-family:var(--f-display);font-size:18px;margin:0 0 12px}
+details{border-top:1px solid var(--line);padding:12px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{font-weight:600;cursor:pointer}
+details p{color:var(--muted);margin:8px 0 0}
+footer{color:var(--muted);font-size:13px;text-align:center;display:flex;flex-direction:column;gap:4px}
+a{color:var(--accent)}
+@media (max-width:380px){.why{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.pay{animation:in .25s ease-out}@keyframes in{from{transform:translateY(6px)}to{transform:none}}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>PremStar.gram</div>
+    <h1>Звёзды и <em>Premium</em> для Telegram</h1>
+    <p class="sub">Себе или в подарок · оплата переводом через Агропромбанк ПМР</p>
+  </header>
+
+  
+  <form class="card" id="buy" novalidate>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-stars" aria-selected="true" data-mode="stars">Звёзды</button>
+      <button type="button" role="tab" id="tab-prem" aria-selected="false" data-mode="premium">Premium</button>
+    </div>
+
+    <div>
+      <label class="lbl" for="user">Получатель</label>
+      <div class="field"><span>@</span><input id="user" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="username"></div>
+      <div class="hint">Свой @username или друга. Пароль и код из СМС не нужны.</div>
+    </div>
+
+    <div>
+      <span class="lbl" id="pack-lbl">Сколько звёзд</span>
+      <div class="pick">
+        <div class="chips" id="packs" role="group" aria-labelledby="pack-lbl"></div>
+        <div id="custom-wrap">
+          <div class="field"><input id="custom" type="number" inputmode="numeric" min="50" step="1" placeholder="Своё количество, от 50"><span>★</span></div>
+          <div class="hint" id="rate"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="total"><span>К оплате</span><b id="sum">—</b></div>
+    <p class="err" id="err" hidden></p>
+    <button class="btn" type="submit">Перейти к оплате</button>
+    <p class="legal">Нажимая кнопку, вы подтверждаете, что @username указан верно. Отправленные звёзды вернуть нельзя.</p>
+  </form>
+
+  <section class="card pay" id="pay" hidden aria-live="polite">
+    <div>
+      <h2>Оплата заказа</h2>
+      <div class="order" id="order-id"></div>
+    </div>
+    <dl class="req" id="req"></dl>
+    <ol class="steps">
+      <li>Переведите точную сумму по реквизитам выше.</li>
+      <li>Сделайте скриншот или сохраните чек.</li>
+      <li>Отправьте текст заявки и чек в поддержку <b>@Uzkiiii</b>.</li>
+    </ol>
+    <button class="btn ghost" type="button" id="copy-order">Скопировать текст заявки</button>
+    <a class="btn" href="https://t.me/Uzkiiii" target="_blank" rel="noopener">Написать @Uzkiiii в Telegram</a>
+    <p class="legal">Обычно заказ выполняется после проверки оплаты. Если не сможем выполнить — вернём деньги.</p>
+  </section>
+
+  <section>
+    <h3>Почему PremStar.gram</h3>
+    <div class="why">
+      <div><b>Только @username</b><span>Без пароля и входа в аккаунт</span></div>
+      <div><b>Оплата в ПМР</b><span>Переводом через Агропромбанк</span></div>
+      <div><b>Можно в подарок</b><span>Укажите @username друга</span></div>
+      <div><b>Живая поддержка</b><span>@Uzkiiii в Telegram</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Вопросы</h3>
+    <details><summary>Это безопасно?</summary><p>Нужен только @username. Ни пароля, ни кода из СМС, ни входа в аккаунт.</p></details>
+    <details><summary>Можно купить другу?</summary><p>Да. Укажите его @username — звёзды или Premium придут на его аккаунт.</p></details>
+    <details><summary>Если ошибся в @username?</summary><p>Напишите в поддержку до отправки заказа. Уже отправленные звёзды вернуть нельзя.</p></details>
+    <details><summary>Как оплатить?</summary><p>Переводом по реквизитам Агропромбанка, которые появятся после оформления заказа. Чек отправьте в @Uzkiiii.</p></details>
+  </section>
+
+  <footer>
+    <span>PremStar.gram — независимый магазин, не связан с Telegram.</span>
+    <span>Поддержка: @Uzkiiii</span>
+  </footer>
+</div>
+
+<script>
+/* ===== НАСТРОЙКИ ===== */
+const CONFIG = {
+  currency: "руб. ПМР",
+  starPrice: 0.35,            // цена одной звезды
+  minStars: 50,
+  starPacks: [50, 100, 250, 500, 1000],
+  premium: [
+    {months:3,  price:225},
+    {months:6,  price:320},
+    {months:12, price:515},
+  ],
+  requisites: [
+    {label:"Банк", value:"Агропромбанк ПМР", mono:false},
+    {label:"Перевод по номеру телефона", value:"+37377842694", mono:true},
+    {label:"Получатель", value:"Кирилл Т.", mono:false},
+  ],
+};
+/* ====================== */
+
+const $ = s => document.querySelector(s);
+let mode = "stars", pick = 0;
+
+const money = n => (Math.round(n*100)/100).toLocaleString("ru-RU",{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
+const fmt = n => n ? money(n) + " " + CONFIG.currency : "цена по запросу";
+const monthsWord = m => m + " месяцев";
+const customVal = () => parseInt($("#custom").value,10) || 0;
+
+function current(){
+  if (mode === "stars"){
+    const amt = customVal() || CONFIG.starPacks[pick];
+    return {name: amt + " звёзд", amount: amt, price: amt * CONFIG.starPrice};
+  }
+  const it = CONFIG.premium[pick];
+  return {name: "Premium на " + monthsWord(it.months), price: it.price};
+}
+
+function render(){
+  const stars = mode === "stars";
+  $("#pack-lbl").textContent = stars ? "Сколько звёзд" : "Срок подписки";
+  $("#custom-wrap").hidden = !stars;
+  $("#rate").textContent = "1 звезда = " + money(CONFIG.starPrice) + " " + CONFIG.currency;
+  const box = $("#packs"); box.innerHTML = "";
+  (stars ? CONFIG.starPacks : CONFIG.premium).forEach((it,i)=>{
+    const b = document.createElement("button");
+    b.type = "button"; b.setAttribute("aria-pressed", i===pick && !(stars && customVal()));
+    const label = stars ? it + " ★" : it.months + " мес.";
+    const price = stars ? money(it*CONFIG.starPrice) : (it.price ? money(it.price) : "по запросу");
+    b.innerHTML = label + "<small>" + price + "</small>";
+    b.onclick = ()=>{ pick=i; if (stars) $("#custom").value=""; render(); };
+    box.appendChild(b);
+  });
+  $("#sum").textContent = fmt(current().price);
+}
+$("#custom").addEventListener("input", render);
+document.querySelectorAll(".tabs button").forEach(t=>t.onclick=()=>{
+  mode = t.dataset.mode; pick = 0;
+  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected", x===t));
+  render(); $("#pay").hidden = true;
+});
+render();
+
+let orderText = "";
+$("#buy").addEventListener("submit", e=>{
+  e.preventDefault();
+  const u = $("#user").value.trim().replace(/^@/,"");
+  const err = $("#err");
+  if (!/^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(u)) {
+    err.textContent = "Проверьте @username: 5–32 символа, латиница, цифры и «_», начинается с буквы.";
+    err.hidden = false; $("#user").focus(); return;
+  }
+  const it = current();
+  if (mode === "stars" && it.amount < CONFIG.minStars){
+    err.textContent = "Минимум " + CONFIG.minStars + " звёзд."; err.hidden = false; $("#custom").focus(); return;
+  }
+  if (!it.price){
+    err.textContent = "Цену на Premium уточните у @Uzkiiii в Telegram."; err.hidden = false; return;
+  }
+  err.hidden = true;
+  const id = "PS-" + Date.now().toString(36).toUpperCase().slice(-6);
+  $("#order-id").textContent = "Заказ " + id;
+  const req = $("#req"); req.innerHTML = "";
+  const rows = [...CONFIG.requisites,
+    {label:"Сумма", value: fmt(it.price), mono:true},
+    {label:"Назначение / комментарий", value: id, mono:true}];
+  rows.forEach(r=>{
+    const row = document.createElement("div"); row.className="row";
+    row.innerHTML = '<div><dt></dt><dd></dd></div><button type="button" class="copy">Копировать</button>';
+    row.querySelector("dt").textContent = r.label;
+    const dd = row.querySelector("dd"); dd.textContent = r.value; if (r.mono) dd.className="mono";
+    row.querySelector(".copy").onclick = ev => copy(r.value, ev.currentTarget, dd);
+    req.appendChild(row);
+  });
+  orderText = "Заказ " + id + "\nТовар: " + it.name + "\nПолучатель: @" + u + "\nСумма: " + fmt(it.price) + "\nЧек прикладываю.";
+  $("#pay").hidden = false;
+  $("#pay").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
+});
+$("#copy-order").onclick = ev => copy(orderText, ev.currentTarget);
+
+function copy(text, btn, el){
+  const done = ()=>{ const t = btn.textContent; btn.textContent = "Скопировано"; setTimeout(()=>btn.textContent=t,1400); };
+  const fallback = ()=>{ if (el){ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent="Выделено — нажмите копировать"; } };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e){ fallback(); }
+}
+</script>
+</body></html>
